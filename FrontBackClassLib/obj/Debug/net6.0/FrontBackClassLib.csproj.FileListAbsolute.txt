@@ -1,0 +1,12 @@
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\bin\Debug\net6.0\FrontBackClassLib.deps.json
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\bin\Debug\net6.0\FrontBackClassLib.dll
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\bin\Debug\net6.0\FrontBackClassLib.pdb
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\FrontBackClassLib.csproj.AssemblyReference.cache
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\FrontBackClassLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\FrontBackClassLib.AssemblyInfoInputs.cache
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\FrontBackClassLib.AssemblyInfo.cs
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\FrontBackClassLib.csproj.CoreCompileInputs.cache
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\FrontBackClassLib.dll
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\refint\FrontBackClassLib.dll
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\FrontBackClassLib.pdb
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\ref\FrontBackClassLib.dll

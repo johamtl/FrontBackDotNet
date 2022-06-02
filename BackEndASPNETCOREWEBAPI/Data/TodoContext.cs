@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
+using FrontBackClassLib;
 
-namespace ASPNETCOREWEBAPI.Models
+namespace ASPNETCOREWEBAPI.Data
 {
     public class TodoContext : DbContext
     {

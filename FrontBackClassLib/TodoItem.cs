@@ -1,4 +1,4 @@
-﻿namespace ASPNETCOREWEBAPI.Models
+﻿namespace FrontBackClassLib
 {
     public class TodoItem
     {

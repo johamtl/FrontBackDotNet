@@ -1,6 +1,8 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using ASPNETCOREWEBAPI.Models;
+using FrontBackClassLib;
+using ASPNETCOREWEBAPI.Data;
+using ASPNETCOREWEBAPI.Business;
 
 // 1. define Post/Get/Put/Delete here before test these actions in Postman
 
@@ -19,22 +21,14 @@ namespace ASPNETCOREWEBAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Dog>>> GetDog()
         {
-            List<Dog> dogList = new List<Dog>();
-            dogList = mySQL.DisplayDogs();
-            return dogList;
+            return DogBusiness.GetDog();
         }
 
         //GET: api/Dog/5
         [HttpGet("{id}")]
         public async Task<ActionResult<List<Dog>>> GetDogById(int id)
         {
-            List<Dog> dogResult = mySQL.searchDogById(id);
-
-            if (dogResult == null || dogResult.Count == 0)
-            {
-                return NotFound();
-            }
-            return dogResult;
+            return DogBusiness.GetDogById(id);
         }
 
         // PUT: api/Dog/5
@@ -63,16 +57,20 @@ namespace ASPNETCOREWEBAPI.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754     
 
         [HttpPost]
-        public bool PostNewDog(Dog newDog)
+        public Boolean PostNewDog(Dog newDog)
         {
-           return mySQL.AddDog(newDog.Weight, newDog.Name,newDog.Breed,newDog.Id);
+            if (typeof(Dog).IsInstanceOfType(newDog))
+            {
+                return DogBusiness.PostNewDog(newDog);
+            }
+            return false;
         }
 
         // DELETE: api/Dog/5
         [HttpDelete("{id}")]
-        public async Task<bool> DeleteDog(int id)
+        public Boolean DeleteDog(int id)
         {
-            return mySQL.DeleteDog(id);
+            return DogBusiness.DeleteDog(id);
         }
     }
 }

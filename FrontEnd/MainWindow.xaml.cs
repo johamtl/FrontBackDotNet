@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using System.Net.Http.Json;
 using studyGroupProject1.classes;
 using System.Reflection;
+using studyGroupProject1.service;
 
 
 namespace studyGroupProject1
@@ -30,68 +31,42 @@ namespace studyGroupProject1
     /// </summary>
     public partial class MainWindow : Window
     {
-        internal static HttpClient httpClientInstance;
-        internal static string connectionString = "";
-        Uri baseUri = new Uri("https://localhost:7058/api/dog");
-
+       
         public MainWindow()
         {
             InitializeComponent();
-            DBConnection_Start();
+            //await DogService.DBConnection_Start();
         }
 
-        private void ButtonAddName_Click(object sender, RoutedEventArgs e)
+        private async void ButtonAddName_Click(object sender, RoutedEventArgs e)
         {
+            Dog newDog = new Dog();
             if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
-            {
+            {                
+                //txtName.Clear();
+                newDog.Name = txtName.Text;
                 lstNames.Items.Add(txtName.Text);
-                txtName.Clear();
             }
+            if (!string.IsNullOrWhiteSpace(txtBreed.Text) && !lstNames.Items.Contains(txtBreed.Text))
+            {
+                newDog.Breed= txtBreed.Text;
+            }
+            if (!string.IsNullOrWhiteSpace(txtWeight.Text) && !lstNames.Items.Contains(txtWeight.Text))
+            {
+                newDog.Weight = Int32.Parse(txtWeight.Text);
+            }
+            await DogService.Post(newDog);
         }
-        protected async void DBConnection_Start()
+        private async void ButtonShowCurrentUsers_Click(object sender, RoutedEventArgs e)
         {
-            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            lstNames.Items.Clear();
 
-            httpClientInstance = new HttpClient();
-            httpClientInstance.BaseAddress = baseUri;
-            httpClientInstance.DefaultRequestHeaders.Clear();
-            httpClientInstance.DefaultRequestHeaders.ConnectionClose = false;
-            httpClientInstance.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+            List<Dog> dogs= await DogService.GetAllDog();
 
-            //ServicePointManager.FindServicePoint(baseUri).ConnectionLeaseTimeout = 60 * 1000;
-        }
-        protected async void Get()
-        {
-            var builder = new UriBuilder(baseUri);
-            builder.Query = "1=1";
-            var url = builder.ToString();
-            string results = await httpClientInstance.GetStringAsync(url);
-
-            List<Dog> dog = JsonConvert.DeserializeObject<List<Dog>>(results);
-
-            foreach (var a in dog)
+            foreach (var a in dogs)
             {
                 lstNames.Items.Add(a.Name);
             }
-        }
-
-        protected async void Post()
-        {
-            var record = new
-            {
-                Name = "Foo",
-                Id=4
-            };
-
-            JsonContent content = JsonContent.Create(record);
-            HttpResponseMessage result = await httpClientInstance.PostAsync(baseUri, content);
-            MessageBox.Show(result.ToString());
-        }
-
-        private void ButtonShowCurrentUsers_Click(object sender, RoutedEventArgs e)
-        {
-            Get();
         }
     }
 }

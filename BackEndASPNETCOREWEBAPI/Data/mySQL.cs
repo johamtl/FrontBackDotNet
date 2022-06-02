@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Data.SqlClient;// not using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
-using ASPNETCOREWEBAPI.Models;
+using FrontBackClassLib;
 
 //sqlClient 
 // --SqlConnection
@@ -15,7 +15,7 @@ using ASPNETCOREWEBAPI.Models;
 
 //Auto format : Ctrl+K, Ctrl+D
 
-namespace ASPNETCOREWEBAPI.Models
+namespace ASPNETCOREWEBAPI.Data
 {
     public class mySQL
     {
@@ -52,7 +52,6 @@ namespace ASPNETCOREWEBAPI.Models
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    
                     int weight = reader.GetInt32(0);    // Weight int
                     string name = reader.GetString(1);  // Name string
                     string breed = reader.GetString(2); // Breed string
@@ -134,23 +133,16 @@ namespace ASPNETCOREWEBAPI.Models
                     SqlDataReader reader = command.ExecuteReader(); //Use SqlDataAdapter if you want to bind table to controls
                     while (reader.Read())
                     {
-                        
-
                         int weight = reader.GetInt32(0);    // Weight int
                         string name = reader.GetString(1);  // Name string
                         string breed = reader.GetString(2); // Breed string
                         int id = reader.GetInt32(3); // Breed string
 
-                        dogs.Add(new Dog() {  Weight = weight, Name = name, Breed = breed, Id = id });
+                        dogs.Add(new Dog() { Weight = weight, Name = name, Breed = breed, Id = id });
                     }
                 }
             }
-
             return dogs;
-            //foreach (Dog dog in dogs)
-            //{
-            //    Console.WriteLine(dog);
-            //}
         }
 
         /// <summary>
@@ -177,7 +169,7 @@ namespace ASPNETCOREWEBAPI.Models
 
             catch (SystemException ex)
             {
-                return false;            
+                return false;
             }
         }
     }
