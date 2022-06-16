@@ -13,4 +13,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceAgent\ServiceAgent.csproj" />
+    <ProjectReference Include="..\WpfControlLibrary2\View.csproj" />
+  </ItemGroup>
+
 </Project>

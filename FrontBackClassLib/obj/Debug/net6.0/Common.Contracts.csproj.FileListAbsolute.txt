@@ -1,0 +1,12 @@
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\bin\Debug\net6.0\Common.Contracts.deps.json
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\bin\Debug\net6.0\Common.Contracts.dll
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\bin\Debug\net6.0\Common.Contracts.pdb
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\Common.Contracts.csproj.AssemblyReference.cache
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\Common.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\Common.Contracts.AssemblyInfoInputs.cache
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\Common.Contracts.AssemblyInfo.cs
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\Common.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\Common.Contracts.dll
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\refint\Common.Contracts.dll
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\Common.Contracts.pdb
+C:\Users\hanj\MyVSProject\FrontBackDotNet\FrontBackClassLib\obj\Debug\net6.0\ref\Common.Contracts.dll

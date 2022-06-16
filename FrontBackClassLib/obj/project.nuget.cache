@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G+ic+6b5PgC/YWVcs336nL1SL4AvsQAhsKHTdqTllD5xjY/nCNrVnesDhK3pNJvYyykvWOdS6WijcaIXmz5MFQ==",
+  "dgSpecHash": "N/L9jaxAqGi2/ErsqPgdiD7PMNnNr71ZM9TO596sXj5EXqsf3GhXEr+Wacyn2Ns+/v+IkH1O+VluviKBIQnaIg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hanj\\MyVSProject\\FrontBackDotNet\\FrontBackClassLib\\FrontBackClassLib.csproj",
+  "projectFilePath": "C:\\Users\\hanj\\MyVSProject\\FrontBackDotNet\\FrontBackClassLib\\Common.Contracts.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

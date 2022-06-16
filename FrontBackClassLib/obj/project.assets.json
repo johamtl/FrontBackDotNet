@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hanj\\MyVSProject\\FrontBackDotNet\\FrontBackClassLib\\FrontBackClassLib.csproj",
-      "projectName": "FrontBackClassLib",
-      "projectPath": "C:\\Users\\hanj\\MyVSProject\\FrontBackDotNet\\FrontBackClassLib\\FrontBackClassLib.csproj",
+      "projectUniqueName": "C:\\Users\\hanj\\MyVSProject\\FrontBackDotNet\\FrontBackClassLib\\Common.Contracts.csproj",
+      "projectName": "Common.Contracts",
+      "projectPath": "C:\\Users\\hanj\\MyVSProject\\FrontBackDotNet\\FrontBackClassLib\\Common.Contracts.csproj",
       "packagesPath": "C:\\Users\\hanj\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\hanj\\MyVSProject\\FrontBackDotNet\\FrontBackClassLib\\obj\\",
       "projectStyle": "PackageReference",

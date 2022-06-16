@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using View;
 
 namespace studyGroupProject1
 {
@@ -13,5 +14,6 @@ namespace studyGroupProject1
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

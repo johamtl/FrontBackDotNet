@@ -1,34 +1,40 @@
-﻿
+﻿#define ENABLE_OBO
 using Microsoft.AspNetCore.Mvc;
-using FrontBackClassLib;
-using ASPNETCOREWEBAPI.Data;
-using ASPNETCOREWEBAPI.Business;
-
+using CommonContracts;
+using BusinessProviders.Business;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Identity.Web.Resource;
 // 1. define Post/Get/Put/Delete here before test these actions in Postman
 
 namespace ASPNETCOREWEBAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [RequiredScope("access_as_user")]
     public class DogController : ControllerBase
     {
-        public DogController(TodoContext context)
+        private readonly IDogBusinessProvider _dogBusinessProvider;
+        static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+        public DogController(IDogBusinessProvider dogBusinessProvider)
         {
             //mySQL.TryCreateDogTable();
+            _dogBusinessProvider = dogBusinessProvider;
         }
 
         //GET: api/Dog
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Dog>>> GetDog()
         {
-            return DogBusiness.GetDog();
+            HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+            return _dogBusinessProvider.GetDog();
         }
 
         //GET: api/Dog/5
         [HttpGet("{id}")]
         public async Task<ActionResult<List<Dog>>> GetDogById(int id)
         {
-            return DogBusiness.GetDogById(id);
+            return _dogBusinessProvider.GetDogById(id);
         }
 
         // PUT: api/Dog/5
@@ -61,7 +67,7 @@ namespace ASPNETCOREWEBAPI.Controllers
         {
             if (typeof(Dog).IsInstanceOfType(newDog))
             {
-                return DogBusiness.PostNewDog(newDog);
+                return _dogBusinessProvider.PostNewDog(newDog);
             }
             return false;
         }
@@ -70,7 +76,7 @@ namespace ASPNETCOREWEBAPI.Controllers
         [HttpDelete("{id}")]
         public Boolean DeleteDog(int id)
         {
-            return DogBusiness.DeleteDog(id);
+            return _dogBusinessProvider.DeleteDog(id);
         }
     }
 }
