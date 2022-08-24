@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FrontEnd",
+    "\\ServiceAgent",
+    "\\ServiceAgent\\Agents"
   ],
-  "SelectedNode": "\\WindowsFormsControlLibrary1",
   "PreviewInSolutionExplorer": false
 }

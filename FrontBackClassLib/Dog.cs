@@ -1,4 +1,5 @@
-﻿namespace CommonContracts
+﻿
+namespace CommonContracts
 {
     /// <summary>
     /// Encapsulates data for dog objects.
