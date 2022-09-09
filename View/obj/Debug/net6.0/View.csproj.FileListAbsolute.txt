@@ -1,5 +1,0 @@
-C:\Users\hanj\MyVSProject\FrontBackDotNet\View\obj\Debug\net6.0\View.csproj.AssemblyReference.cache
-C:\Users\hanj\MyVSProject\FrontBackDotNet\View\obj\Debug\net6.0\View.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\hanj\MyVSProject\FrontBackDotNet\View\obj\Debug\net6.0\View.AssemblyInfoInputs.cache
-C:\Users\hanj\MyVSProject\FrontBackDotNet\View\obj\Debug\net6.0\View.AssemblyInfo.cs
-C:\Users\hanj\MyVSProject\FrontBackDotNet\View\obj\Debug\net6.0\View.csproj.CoreCompileInputs.cache

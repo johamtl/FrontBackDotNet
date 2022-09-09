@@ -4,6 +4,7 @@ using CommonContracts;
 using BusinessProviders.Business;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Identity.Web.Resource;
+using Microsoft.AspNetCore.Cors;
 // 1. define Post/Get/Put/Delete here before test these actions in Postman
 
 namespace ASPNETCOREWEBAPI.Controllers
@@ -11,22 +12,20 @@ namespace ASPNETCOREWEBAPI.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [RequiredScope("access_as_user")]
+    [RequiredScope("access_as_user")] //if token has scp, use this one
     public class DogController : ControllerBase
     {
         private readonly IDogBusinessProvider _dogBusinessProvider;
-        static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
         public DogController(IDogBusinessProvider dogBusinessProvider)
         {
-            //mySQL.TryCreateDogTable();
             _dogBusinessProvider = dogBusinessProvider;
         }
 
         //GET: api/Dog
         [HttpGet]
+        //[Authorize(Roles = "ReadApi")]// -- if token has roles, use this one
         public async Task<ActionResult<IEnumerable<Dog>>> GetDog()
         {
-            HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
             return _dogBusinessProvider.GetDog();
         }
 
@@ -37,7 +36,7 @@ namespace ASPNETCOREWEBAPI.Controllers
             return _dogBusinessProvider.GetDogById(id);
         }
 
-        // PUT: api/Dog/5
+        // PUT: api/Dog/5 -- To be continued
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         //[HttpPut("{id}")]
         //public async Task<IActionResult> PutNewDog(int id, Dog newDog)

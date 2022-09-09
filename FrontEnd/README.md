@@ -1,1 +1,0 @@
-# studyGroupProject1

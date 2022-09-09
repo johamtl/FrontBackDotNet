@@ -44,3 +44,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## extra libraries installed by Jing
+
+--cors -- no need
+--axios@0.24.0
+--azure msal for react (@azure/msal-brower,@azure/msal-react)
+--typescript
+--redux
+
+brief  version
+--npm install xxx --save --force 
+--npm install react-bootstrap bootstrap
+--npm install @azure/msal-react
+--npm install @azure/msal-browser
+--npm install react-azure-adb2c
+-
+

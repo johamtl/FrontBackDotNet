@@ -1,18 +1,9 @@
-using Microsoft.EntityFrameworkCore;
-using DataProviders.Data;
 using BusinessProviders.Business;
-using Microsoft.Identity.Client;
 using Microsoft.Identity.Web;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-//
 builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
 {
     config.AddJsonFile("appsettings.json",
@@ -20,19 +11,16 @@ builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
                        reloadOnChange: true);
 });
 
+builder.Services.AddCors();
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<IDogBusinessProvider, DogBusinessProvider>();
 
+//Authentication Step 1
 builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration)
         .EnableTokenAcquisitionToCallDownstreamApi()
         .AddInMemoryTokenCaches();
-
-//builder.Services.AddDbContext<TodoContext>(opt =>
-//    opt.UseInMemoryDatabase("TodoList"));
-//builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -40,13 +28,21 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
+//add CORS permission
+app.UseCors(
+        options => options.WithOrigins("http://localhost:3000")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials()
+    );
+
+//Authentication, Step2
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,6 +1,6 @@
-import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+import { PageLayout } from "./components/PageLayout";
 import { Authorization } from './features/authorization/Authorization';
 import './App.css';
 
@@ -9,10 +9,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Authorization />
-       <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+
+        <PageLayout>
+          <AuthenticatedTemplate>
+            <Authorization />
+          </AuthenticatedTemplate>
+          <UnauthenticatedTemplate>
+            <h5 className="card-title">Please sign-in to see your profile information.</h5>
+          </UnauthenticatedTemplate>
+        </PageLayout>
+
         <span>
           <span>Learn </span>
           <a

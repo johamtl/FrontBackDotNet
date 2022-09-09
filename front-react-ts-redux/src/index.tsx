@@ -5,19 +5,26 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import { msalConfig } from "./oauthConfigAzure";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+const msalInstance = new PublicClientApplication(msalConfig);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}> 
-      <App />
-    </Provider>
+    <MsalProvider instance={msalInstance}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </MsalProvider>
   </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
