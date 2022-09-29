@@ -64,8 +64,10 @@ export const graphConfig = {
 };
 
 export const myapiLoginRequest = {
-    scopes: ["api://c7919097-f8f2-4202-8573-5727fd068497/.default"]
+    // scopes: ["api://c7919097-f8f2-4202-8573-5727fd068497/.default","ReadApi"]
+    scopes: ["api://c7919097-f8f2-4202-8573-5727fd068497/ScopeRead"]
 };
+
 
 export const myapiConfig = {
     myapiURL: "https://localhost:44319/api/dog"

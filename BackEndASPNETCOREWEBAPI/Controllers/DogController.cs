@@ -12,7 +12,7 @@ namespace ASPNETCOREWEBAPI.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [RequiredScope("access_as_user")] //if token has scp, use this one
+    [RequiredScope("ScopeRead")] //if token has scp, use this one
     public class DogController : ControllerBase
     {
         private readonly IDogBusinessProvider _dogBusinessProvider;
